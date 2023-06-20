@@ -11,6 +11,8 @@ import PersonalForm from "./Forms/PersonalForm";
 import ExperienceForm from "./Forms/ExperienceForm";
 import EducationForm from "./Forms/EducationForm";
 
+import { examplePersonalData } from "../config";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -30,6 +32,28 @@ class App extends React.Component {
   onChangePersonalInputs = (target) => {
     const { name, value } = target;
     this.setState({ personal: { ...this.state.personal, [name]: value } });
+<<<<<<< HEAD
+=======
+  };
+
+  onCLickResetBtn = () => {
+    this.setState({
+      personal: {
+        name: "",
+        title: "",
+        photoSrc: "",
+        email: "",
+        tel: "",
+        description: "",
+      },
+    });
+  };
+
+  onClickLoadBtn = () => {
+    this.setState({
+      personal: { ...examplePersonalData },
+    });
+>>>>>>> 03942ea (Modify App Component)
   };
 
   render() {
@@ -38,7 +62,10 @@ class App extends React.Component {
     return (
       <div className="container">
         <Heading />
-        <Controls />
+        <Controls
+          onClickReset={this.onCLickResetBtn}
+          onClickLoad={this.onClickLoadBtn}
+        />
 
         <div className="cv-form">
           <PersonalForm
