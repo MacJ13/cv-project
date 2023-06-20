@@ -12,6 +12,21 @@ import ExperienceForm from "./Forms/ExperienceForm";
 import EducationForm from "./Forms/EducationForm";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      personal: {
+        name: "",
+        title: "",
+        photoSrc: "",
+        email: "",
+        tel: "",
+        description: "",
+      },
+    };
+  }
+
   render() {
     return (
       <div className="container">
