@@ -32,8 +32,6 @@ class App extends React.Component {
   onChangePersonalInputs = (target) => {
     const { name, value } = target;
     this.setState({ personal: { ...this.state.personal, [name]: value } });
-<<<<<<< HEAD
-=======
   };
 
   onCLickResetBtn = () => {
@@ -53,7 +51,6 @@ class App extends React.Component {
     this.setState({
       personal: { ...examplePersonalData },
     });
->>>>>>> 03942ea (Modify App Component)
   };
 
   render() {
