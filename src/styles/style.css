@@ -101,3 +101,75 @@ button {
 #btn-pdf {
   background-color: #34d399;
 }
+
+/* /////////////// CV FORMS ///////////////////// */
+.cv-form {
+  width: 100%;
+}
+
+.form {
+  padding: 2rem 1.5rem;
+}
+
+.form-heading {
+  margin-bottom: 1rem;
+}
+
+.form-column {
+  width: 100%;
+}
+
+.form-column > input,
+.form-column > textarea {
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+
+.form-column > input,
+.form-column > textarea,
+.custom-file-input::before {
+  padding: 0.825rem;
+  margin-bottom: 0.75rem;
+
+  border-radius: 0.25rem;
+}
+
+.form-column > textarea {
+  resize: vertical;
+}
+
+.custom-file-input::before {
+  content: "photo";
+  display: block;
+  background-color: #fff;
+
+  outline: none;
+  white-space: no-wrap;
+  cursor: pointer;
+
+  font-size: 0.8rem;
+}
+
+.form-btns {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.form-btn {
+  flex: 1;
+  background-color: #9ca3af;
+  /* width: 7.5rem; */
+  padding: 0.85rem 0;
+
+  color: #e3e3e3;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 0.25rem;
+}
+
+.form-btn:active {
+  opacity: 0.75;
+}
