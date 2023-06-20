@@ -27,28 +27,9 @@ class App extends React.Component {
     };
   }
 
-  onChangeInputPhoto = (photoSrc) => {
-    this.setState({ personal: { ...this.state.personal, photoSrc } });
-  };
-
-  onChangeInputName = (name) => {
-    this.setState({ personal: { ...this.state.personal, name } });
-  };
-
-  onChangeInputTitle = (title) => {
-    this.setState({ personal: { ...this.state.personal, title } });
-  };
-
-  onChangeInputEmail = (email) => {
-    this.setState({ personal: { ...this.state.personal, email } });
-  };
-
-  onChangeInputTel = (tel) => {
-    this.setState({ personal: { ...this.state.personal, tel } });
-  };
-
-  onChangeTextDescription = (description) => {
-    this.setState({ personal: { ...this.state.personal, description } });
+  onChangePersonalInputs = (target) => {
+    const { name, value } = target;
+    this.setState({ personal: { ...this.state.personal, [name]: value } });
   };
 
   render() {
@@ -61,12 +42,7 @@ class App extends React.Component {
 
         <div className="cv-form">
           <PersonalForm
-            onChangePhoto={this.onChangeInputPhoto}
-            onChangeName={this.onChangeInputName}
-            onChangeTitle={this.onChangeInputTitle}
-            onChangeEmail={this.onChangeInputEmail}
-            onChangeTel={this.onChangeInputTel}
-            onChangeDesc={this.onChangeTextDescription}
+            onChangeInputs={this.onChangePersonalInputs}
             person={personal}
           />
           <ExperienceForm />
