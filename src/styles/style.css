@@ -60,10 +60,44 @@ button {
   grid-template-columns: repeat(2, 1fr);
 }
 
-/* HEADING */
+/* /////////////// HEADING ///////////////////////// */
 .heading {
   grid-column: span 2;
   text-align: center;
   padding: 2rem 1rem;
   text-transform: uppercase;
+}
+
+/* ////////////////// CONTROLS BUTTONS ///////////////// */
+.controls {
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  gap: 10rem;
+  padding: 2rem 5rem;
+}
+
+.control-btn {
+  flex: 1;
+  padding: 0.75rem 0rem;
+
+  font-size: 1.1rem;
+  color: #fff;
+  letter-spacing: 0.1rem;
+  border-radius: 0.25rem;
+}
+
+.control-btn:active {
+  opacity: 0.85;
+}
+
+#btn-load {
+  background-color: #93c5fd;
+}
+#btn-reset {
+  background-color: #f87171;
+}
+
+#btn-pdf {
+  background-color: #34d399;
 }
