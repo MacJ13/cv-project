@@ -2,46 +2,17 @@ import React from "react";
 import Form from "./Form";
 
 class PersonalForm extends React.Component {
-  getName = (e) => {
-    const name = e.target.value;
-    const { onChangeName } = this.props;
-
-    onChangeName(name);
-  };
-
-  getTitle = (e) => {
-    const title = e.target.value;
-    const { onChangeTitle } = this.props;
-
-    onChangeTitle(title);
-  };
-
-  getEmail = (e) => {
-    const email = e.target.value;
-    const { onChangeEmail } = this.props;
-
-    onChangeEmail(email);
-  };
-
-  getTel = (e) => {
-    const tel = e.target.value;
-    const { onChangeTel } = this.props;
-
-    onChangeTel(tel);
-  };
-
-  getDescription = (e) => {
-    const desc = e.target.value;
-    const { onChangeDesc } = this.props;
-    onChangeDesc(desc);
+  handleInputChange = (e) => {
+    const { name, value, type } = e.target;
+    const data = { name, value: type === "file" ? this.getPhotoSrc(e) : value };
+    this.props.onChangeInputs(data);
   };
 
   getPhotoSrc = (e) => {
-    console.log(e.target.files[0]);
-    if (!e.target.files || !e.target.files[0]) return;
+    if (!e.target.files || !e.target.files[0])
+      return this.props.person.photoSrc;
 
-    const { onChangePhoto } = this.props;
-    onChangePhoto(URL.createObjectURL(e.target.files[0]));
+    return URL.createObjectURL(e.target.files[0]);
   };
 
   render() {
@@ -52,45 +23,51 @@ class PersonalForm extends React.Component {
         <div className="form-column">
           <input
             type="text"
-            onChange={this.getName}
+            onChange={this.handleInputChange}
             id="cv-name"
             placeholder="full name"
             value={name}
+            name="name"
           />
           <input
             type="text"
-            onChange={this.getTitle}
+            onChange={this.handleInputChange}
             id="cv-title"
             placeholder="title"
             value={title}
+            name="title"
           />
           <label htmlFor="cv-photo" className="custom-file-input">
             <input
               type="file"
-              onChange={this.getPhotoSrc}
+              onChange={this.handleInputChange}
               id="cv-photo"
               accept=".jpg, .jpeg, .png"
+              name="photoSrc"
             />
           </label>
           <input
             type="email"
-            onChange={this.getEmail}
+            onChange={this.handleInputChange}
             id="cv-email"
             placeholder="email"
             value={email}
+            name="email"
           />
           <input
             type="tel"
-            onChange={this.getTel}
+            onChange={this.handleInputChange}
             id="cv-tel"
             placeholder="phone number"
             value={tel}
+            name="tel"
           />
           <textarea
             id="cv-description"
-            onChange={this.getDescription}
+            onChange={this.handleInputChange}
             placeholder="description"
             value={description}
+            name="description"
           />
         </div>
       </Form>
