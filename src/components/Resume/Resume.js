@@ -4,35 +4,38 @@ import defaultImg from "../../assets/default.png";
 
 class Resume extends React.Component {
   render() {
+    const { name, title, photoSrc, email, tel, description } =
+      this.props.person;
+
     return (
       <div className="resume-draft">
         <div className="resume-column-sm">
-          <h2 className="resume-name">Wacław Jezioranski</h2>
-          <h3 className="resume-title">Senior Java Developer</h3>
-          <img className="resume-photo" src={defaultImg} alt="default avatar" />
+          <h2 className="resume-name">{name || "Your name"}</h2>
+          <h3 className="resume-title">{title}</h3>
+          <img
+            className="resume-photo"
+            src={photoSrc || defaultImg}
+            alt="default avatar"
+          />
           <div className="resume-personal-details">
-            <h4 className="resume-h4">Personal data</h4>
-            <div className="resume-personal-row">email: example@gmail.com</div>
-            <div className="resume-personal-row">tel: +48 123 456 789</div>
+            <h4 className="h4">Personal data</h4>
+            <div className="resume-personal-row">email: {email}</div>
+            <div className="resume-personal-row">tel: {tel}</div>
           </div>
           <div className="resume-personal-details">
-            <h4 className="resume-h4">Skills</h4>
+            <h4 className="h4">Skills</h4>
             <div className="resume-personal-row">JavaScript</div>
             <div className="resume-personal-row">Html, Css</div>
             <div className="resume-personal-row">React js</div>
             <div className="resume-personal-row">Testing and programming</div>
           </div>
         </div>
+
         <div className="resume-column-lg">
           <div className="resume-info">
             <h4 className="h4">Description</h4>
             <div className="resume-desc">
-              <em>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                euismod felis eu egestas feugiat. Nullam semper maximus arcu,
-                quis vulputate nunc fringilla eget. Integer sagittis tincidunt
-                mi, at iaculis metus tempus sit amet.
-              </em>
+              <em>{description}</em>
             </div>
           </div>
 

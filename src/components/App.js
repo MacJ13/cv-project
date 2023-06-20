@@ -72,7 +72,7 @@ class App extends React.Component {
           <ExperienceForm />
           <EducationForm />
         </div>
-        <Resume />
+        <Resume person={personal} />
       </div>
     );
   }
