@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0f8ff;
+  color: #404040;
+  font-size: 16px;
+}
+
+input,
+textarea {
+  appearance: none;
+  border: none;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+button {
+  appearance: none;
+  border: none;
+  background: none;
+
+  cursor: pointer;
+}
