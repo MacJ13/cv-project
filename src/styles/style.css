@@ -57,7 +57,8 @@ button {
 .container {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  /* grid-template-columns: repeat(2, 1fr); */
+  grid-template-columns: 2fr 3fr;
 }
 
 /* /////////////// HEADING ///////////////////////// */
@@ -136,6 +137,7 @@ button {
 
 .form-column > textarea {
   resize: vertical;
+  height: 7.5rem;
 }
 
 .custom-file-input::before {
@@ -213,7 +215,7 @@ h3.resume-title {
 
 .resume-photo {
   display: block;
-  height: 12.5rem;
+  height: 15rem;
   width: 100%;
   object-fit: cover;
   background-color: #93c5fd;
