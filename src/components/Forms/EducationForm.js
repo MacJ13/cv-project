@@ -17,7 +17,7 @@ class EducationForm extends React.Component {
 
     return educations.map((education, i) => {
       return (
-        <div data-index={i} className="form-column">
+        <div key={i} data-index={i} className="form-column">
           <input
             type="text"
             onChange={this.handleInputChange}
@@ -73,8 +73,7 @@ class EducationForm extends React.Component {
 
   render() {
     return (
-      <Form>
-        <h3 className="form-heading">Education Experience</h3>
+      <Form title="Education Experience">
         {this.renderEducationInputs()}
         <FormButtons
           formLength={this.props.educations.length}

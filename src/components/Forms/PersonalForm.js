@@ -18,8 +18,7 @@ class PersonalForm extends React.Component {
   render() {
     const { name, title, email, tel, description } = this.props.person;
     return (
-      <Form>
-        <h3 className="form-heading">Personal Information</h3>
+      <Form title="Personal Information">
         <div className="form-column">
           <input
             type="text"
