@@ -58,6 +58,20 @@ class App extends React.Component {
     this.setState({ works: updatedWorks });
   };
 
+  onChangeEducationInputs = (target) => {
+    const { index, name, value } = target;
+
+    const updatedEducation = this.state.educations.map((education, i) => {
+      if (i === index) {
+        return { ...education, [name]: value };
+      }
+
+      return education;
+    });
+
+    this.setState({ educations: updatedEducation });
+  };
+
   onCLickResetBtn = () => {
     this.setState({
       personal: {
@@ -91,8 +105,20 @@ class App extends React.Component {
     this.setState({ works: [...this.state.works.slice(0, -1)] });
   };
 
+  onClickAddEducationBtn = () => {
+    this.setState({
+      educations: [...this.state.educations, { ...educationData }],
+    });
+  };
+
+  onClickDeleteEducationBtn = () => {
+    this.setState({
+      educations: [...this.state.works.slice(0, -1)],
+    });
+  };
+
   render() {
-    const { personal, works } = this.state;
+    const { personal, works, educations } = this.state;
 
     return (
       <div className="container">
@@ -113,9 +139,14 @@ class App extends React.Component {
             deleteWork={this.onClickDeleteWorkBtn}
             works={works}
           />
-          <EducationForm />
+          <EducationForm
+            onChangeInputs={this.onChangeEducationInputs}
+            educations={educations}
+            addEducation={this.onClickAddEducationBtn}
+            deleteEducation={this.onClickDeleteEducationBtn}
+          />
         </div>
-        <Resume person={personal} works={works} />
+        <Resume person={personal} works={works} educations={educations} />
       </div>
     );
   }
