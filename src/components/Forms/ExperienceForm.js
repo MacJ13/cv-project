@@ -2,42 +2,62 @@ import React from "react";
 import Form from "./Form";
 
 class ExperienceForm extends React.Component {
+  handleInputChange = (e) => {
+    // console.log("value: ", e.target.value);
+    // console.log("column: ");
+    const { name, value } = e.target;
+    const { index } = e.target.closest(".form-column").dataset;
+
+    // convert index from string to number
+    const target = { index: +index, name, value };
+    this.props.onChangeInputs(target);
+  };
+
   renderWorkInputs() {
     const { works } = this.props;
 
     return works.map((work, i) => {
-      console.log(work);
       return (
-        <div data-column={i} className="form-column">
+        <div data-index={i} className="form-column">
           <input
             type="text"
+            onChange={this.handleInputChange}
             id={`cv-position-${i}`}
             placeholder="position"
             value={work.position}
+            name="position"
           />
           <input
             type="text"
+            onChange={this.handleInputChange}
             id={`cv-company-${i}`}
             placeholder="company"
             value={work.company}
+            name="company"
           />
           <input
             type="text"
+            onChange={this.handleInputChange}
             id={`cv-city-${i}`}
             placeholder="city"
             value={work.city}
+            name="city"
           />
           <input
             type="text"
+            onChange={this.handleInputChange}
             id={`cv-from-${i}`}
             placeholder="from"
             value={work.from}
+            name="from"
           />
           <input
             type="text"
+            onChange={this.handleInputChange}
             id={`cv-to-${i}`}
             placeholder="to"
             value={work.to}
+            name="to"
           />
         </div>
       );
