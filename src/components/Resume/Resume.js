@@ -3,6 +3,27 @@ import React from "react";
 import defaultImg from "../../assets/default.png";
 
 class Resume extends React.Component {
+  renderWork() {
+    const { works } = this.props;
+
+    return works.map((work) => {
+      return (
+        <div className="resume-timeline">
+          <div className="resume-date">
+            {work.from} {work.from ? "-" : ""} {work.to}
+          </div>
+          <div className="resume-content">
+            <div className="resume-position">{work.position}</div>
+            <div className="resume-company">
+              {work.company}
+              {work.city ? "," : ""} {work.city}
+            </div>
+          </div>
+        </div>
+      );
+    });
+  }
+
   render() {
     const { name, title, photoSrc, email, tel, description } =
       this.props.person;
@@ -41,7 +62,8 @@ class Resume extends React.Component {
 
           <div className="resume-info">
             <h4 className="h4">Experience</h4>
-            <div className="resume-timeline">
+            {this.renderWork()}
+            {/* <div className="resume-timeline">
               <div className="resume-date">2015 - Present</div>
               <div className="resume-content">
                 <div className="resume-position">Senior Web Developer</div>
@@ -61,7 +83,7 @@ class Resume extends React.Component {
                 <div className="resume-position">UI / UX Designer</div>
                 <div className="resume-company">Google LLC, Mountain View</div>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="resume-info">
             <h4 className="h4">Education</h4>
