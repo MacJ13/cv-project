@@ -1,14 +1,15 @@
 import React from "react";
 
 import defaultImg from "../../assets/default.png";
+import ResumeDetails from "./ResumeDetails";
 
 class Resume extends React.Component {
   renderWork() {
     const { works } = this.props;
 
-    return works.map((work) => {
+    return works.map((work, i) => {
       return (
-        <div className="resume-timeline">
+        <div key={i} className="resume-timeline">
           <div className="resume-date">
             {work.from} {work.from ? "-" : ""} {work.to}
           </div>
@@ -27,9 +28,9 @@ class Resume extends React.Component {
   renderEducation() {
     const { educations } = this.props;
 
-    return educations.map((education) => {
+    return educations.map((education, i) => {
       return (
-        <div className="resume-timeline">
+        <div key={i} className="resume-timeline">
           <div className="resume-date">
             {education.from} {education.from ? "-" : ""} {education.to}
           </div>
@@ -40,7 +41,6 @@ class Resume extends React.Component {
               {education.city}
             </div>
             <div className="resume-degree">
-              {" "}
               {!education.degree || `Degree: ${education.degree}`}
             </div>
             <div className="resume-subject">
@@ -66,36 +66,30 @@ class Resume extends React.Component {
             src={photoSrc || defaultImg}
             alt="default avatar"
           />
-          <div className="resume-personal-details">
-            <h4 className="h4">Personal data</h4>
+
+          <ResumeDetails cls="resume-personal-details" title="Personal Data">
             <div className="resume-personal-row">email: {email}</div>
             <div className="resume-personal-row">tel: {tel}</div>
-          </div>
-          <div className="resume-personal-details">
-            <h4 className="h4">Skills</h4>
+          </ResumeDetails>
+
+          <ResumeDetails cls="resume-personal-details" title="Skills">
             <div className="resume-personal-row">JavaScript</div>
             <div className="resume-personal-row">Html, Css</div>
             <div className="resume-personal-row">React js</div>
             <div className="resume-personal-row">Testing and programming</div>
-          </div>
+          </ResumeDetails>
         </div>
 
         <div className="resume-column-lg">
-          <div className="resume-info">
-            <h4 className="h4">Description</h4>
-            <div className="resume-desc">
-              <em>{description}</em>
-            </div>
-          </div>
-
-          <div className="resume-info">
-            <h4 className="h4">Experience</h4>
+          <ResumeDetails cls="resume-info" title="Description">
+            <em>{description}</em>
+          </ResumeDetails>
+          <ResumeDetails cls="resume-info" title="Experience">
             {this.renderWork()}
-          </div>
-          <div className="resume-info">
-            <h4 className="h4">Education</h4>
+          </ResumeDetails>
+          <ResumeDetails cls="resume-info" title="Education">
             {this.renderEducation()}
-          </div>
+          </ResumeDetails>
         </div>
       </div>
     );
