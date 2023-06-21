@@ -41,4 +41,38 @@ const exampleWorks = [
   },
 ];
 
-export { examplePersonalData, workData, exampleWorks };
+const educationData = {
+  university: "",
+  city: "",
+  degree: "",
+  subject: "",
+  from: "",
+  to: "",
+};
+
+const exampleEducation = [
+  {
+    university: "University of Technology",
+    city: "Oklahoma",
+    degree: "Master",
+    subject: "Science",
+    from: "2008",
+    to: "2010",
+  },
+  {
+    university: "University of Design Art",
+    city: "New York",
+    degree: "Bachelor",
+    subject: "Visual Art",
+    from: "2005",
+    to: "2008",
+  },
+];
+
+export {
+  examplePersonalData,
+  workData,
+  educationData,
+  exampleWorks,
+  exampleEducation,
+};
