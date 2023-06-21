@@ -35,6 +35,22 @@ class App extends React.Component {
     this.setState({ personal: { ...this.state.personal, [name]: value } });
   };
 
+  onChangeWorkInputs = (target) => {
+    const { index, name, value } = target;
+
+    // const updatedWork = { ...this.state.works[index] };
+    // updatedWork[name] = value;
+    const updatedWorks = this.state.works.map((work, i) => {
+      if (i === index) {
+        return { ...work, [name]: value };
+      }
+
+      return work;
+    });
+
+    this.setState({ works: updatedWorks });
+  };
+
   onCLickResetBtn = () => {
     this.setState({
       personal: {
@@ -83,6 +99,7 @@ class App extends React.Component {
             person={personal}
           />
           <ExperienceForm
+            onChangeInputs={this.onChangeWorkInputs}
             addWork={this.onClickAddWorkBtn}
             deleteWork={this.onClickDeleteWorkBtn}
             works={works}
