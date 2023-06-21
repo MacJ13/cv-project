@@ -11,7 +11,7 @@ import PersonalForm from "./Forms/PersonalForm";
 import ExperienceForm from "./Forms/ExperienceForm";
 import EducationForm from "./Forms/EducationForm";
 
-import { examplePersonalData } from "../config";
+import { examplePersonalData, exampleWorks, workData } from "../config";
 
 class App extends React.Component {
   constructor(props) {
@@ -26,6 +26,7 @@ class App extends React.Component {
         tel: "",
         description: "",
       },
+      works: [{ ...workData }],
     };
   }
 
@@ -44,17 +45,29 @@ class App extends React.Component {
         tel: "",
         description: "",
       },
+      works: [{ ...workData }],
     });
   };
 
   onClickLoadBtn = () => {
     this.setState({
       personal: { ...examplePersonalData },
+      works: [...exampleWorks],
     });
   };
 
+  onClickAddWorkBtn = () => {
+    this.setState({
+      works: [...this.state.works, { ...workData }],
+    });
+  };
+
+  onClickDeleteWorkBtn = () => {
+    this.setState({ works: [...this.state.works.slice(0, -1)] });
+  };
+
   render() {
-    const { personal } = this.state;
+    const { personal, works } = this.state;
 
     return (
       <div className="container">
@@ -69,10 +82,14 @@ class App extends React.Component {
             onChangeInputs={this.onChangePersonalInputs}
             person={personal}
           />
-          <ExperienceForm />
+          <ExperienceForm
+            addWork={this.onClickAddWorkBtn}
+            deleteWork={this.onClickDeleteWorkBtn}
+            works={works}
+          />
           <EducationForm />
         </div>
-        <Resume person={personal} />
+        <Resume person={personal} works={works} />
       </div>
     );
   }
