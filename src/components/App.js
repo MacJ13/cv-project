@@ -11,7 +11,13 @@ import PersonalForm from "./Forms/PersonalForm";
 import ExperienceForm from "./Forms/ExperienceForm";
 import EducationForm from "./Forms/EducationForm";
 
-import { examplePersonalData, exampleWorks, workData } from "../config";
+import {
+  examplePersonalData,
+  exampleWorks,
+  workData,
+  educationData,
+  exampleEducation,
+} from "../config";
 
 class App extends React.Component {
   constructor(props) {
@@ -27,6 +33,7 @@ class App extends React.Component {
         description: "",
       },
       works: [{ ...workData }],
+      educations: [{ ...educationData }],
     };
   }
 
@@ -62,6 +69,7 @@ class App extends React.Component {
         description: "",
       },
       works: [{ ...workData }],
+      educations: [{ ...educationData }],
     });
   };
 
@@ -69,6 +77,7 @@ class App extends React.Component {
     this.setState({
       personal: { ...examplePersonalData },
       works: [...exampleWorks],
+      educations: [...exampleEducation],
     });
   };
 
