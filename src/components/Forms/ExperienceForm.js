@@ -1,5 +1,6 @@
 import React from "react";
 import Form from "./Form";
+import FormButtons from "./FormButtons";
 
 class ExperienceForm extends React.Component {
   handleInputChange = (e) => {
@@ -76,22 +77,10 @@ class ExperienceForm extends React.Component {
           <input type="text" id="cv-to" placeholder="to" />
         </div> */}
         {this.renderWorkInputs()}
-        <div className="form-btns">
-          <button
-            onClick={this.props.addWork}
-            type="button"
-            className="form-btn"
-          >
-            Add
-          </button>
-          <button
-            onClick={this.props.deleteWork}
-            type="button"
-            className="form-btn"
-          >
-            Delete
-          </button>
-        </div>
+        <FormButtons
+          onClickAdd={this.props.addWork}
+          onClickDelete={this.props.deleteWork}
+        />
       </Form>
     );
   }
