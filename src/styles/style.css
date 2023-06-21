@@ -121,7 +121,8 @@ button {
 }
 
 .form-column:not(:first-child) {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+  padding: 0.5rem 0;
 }
 
 .form-column > input,
@@ -157,6 +158,7 @@ button {
 }
 
 .form-btns {
+  margin-top: 0.5rem;
   display: flex;
   justify-content: center;
   gap: 2.5rem;
@@ -184,12 +186,13 @@ button {
 
 .resume-draft {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 17rem 1fr;
+  /* grid-template-columns: 1fr 2fr; */
 
   width: 100%;
-  max-width: 50rem;
-
-  /* max-height: 10rem; */
+  max-width: 60rem;
+  height: 100vh;
+  min-height: 50rem;
   background-color: #dae7f6;
 
   position: sticky;
@@ -219,7 +222,7 @@ h3.resume-title {
 
 .resume-photo {
   display: block;
-  height: 15rem;
+  height: 16.5rem;
   width: 100%;
   object-fit: cover;
   background-color: #93c5fd;
