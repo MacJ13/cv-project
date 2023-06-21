@@ -120,6 +120,10 @@ button {
   width: 100%;
 }
 
+.form-column:not(:first-child) {
+  margin-top: 2rem;
+}
+
 .form-column > input,
 .form-column > textarea {
   width: 100%;
