@@ -23,7 +23,7 @@ class ExperienceForm extends React.Component {
           <input
             type="text"
             onChange={this.handleInputChange}
-            id={`cv-position-${i}`}
+            id={`work-position-${i}`}
             placeholder="position"
             value={work.position}
             name="position"
@@ -31,7 +31,7 @@ class ExperienceForm extends React.Component {
           <input
             type="text"
             onChange={this.handleInputChange}
-            id={`cv-company-${i}`}
+            id={`work-company-${i}`}
             placeholder="company"
             value={work.company}
             name="company"
@@ -39,7 +39,7 @@ class ExperienceForm extends React.Component {
           <input
             type="text"
             onChange={this.handleInputChange}
-            id={`cv-city-${i}`}
+            id={`work-city-${i}`}
             placeholder="city"
             value={work.city}
             name="city"
@@ -47,7 +47,7 @@ class ExperienceForm extends React.Component {
           <input
             type="text"
             onChange={this.handleInputChange}
-            id={`cv-from-${i}`}
+            id={`work-from-${i}`}
             placeholder="from"
             value={work.from}
             name="from"
@@ -55,7 +55,7 @@ class ExperienceForm extends React.Component {
           <input
             type="text"
             onChange={this.handleInputChange}
-            id={`cv-to-${i}`}
+            id={`work-to-${i}`}
             placeholder="to"
             value={work.to}
             name="to"
@@ -78,6 +78,7 @@ class ExperienceForm extends React.Component {
         </div> */}
         {this.renderWorkInputs()}
         <FormButtons
+          formLength={this.props.works.length}
           onClickAdd={this.props.addWork}
           onClickDelete={this.props.deleteWork}
         />
