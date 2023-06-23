@@ -35,6 +35,8 @@ class App extends React.Component {
       works: [{ ...workData }],
       educations: [{ ...educationData }],
     };
+
+    this.resumeTag = React.createRef();
   }
 
   onChangePersonalInputs = (target) => {
@@ -124,6 +126,7 @@ class App extends React.Component {
       <div className="container">
         <Heading />
         <Controls
+          resumeTag={this.resumeTag}
           onClickReset={this.onCLickResetBtn}
           onClickLoad={this.onClickLoadBtn}
         />
@@ -146,7 +149,12 @@ class App extends React.Component {
             deleteEducation={this.onClickDeleteEducationBtn}
           />
         </div>
-        <Resume person={personal} works={works} educations={educations} />
+        <Resume
+          innerRef={this.resumeTag}
+          person={personal}
+          works={works}
+          educations={educations}
+        />
       </div>
     );
   }

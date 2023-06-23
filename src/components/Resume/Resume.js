@@ -3,7 +3,7 @@ import React from "react";
 import defaultImg from "../../assets/default.png";
 import ResumeDetails from "./ResumeDetails";
 
-class Resume extends React.Component {
+class Resume extends React.PureComponent {
   renderWork() {
     const { works } = this.props;
 
@@ -57,7 +57,7 @@ class Resume extends React.Component {
       this.props.person;
 
     return (
-      <div className="resume-draft">
+      <div ref={this.props.innerRef} className="resume-draft">
         <div className="resume-column-sm">
           <h2 className="resume-name">{name}</h2>
           <h3 className="resume-title">{title}</h3>
