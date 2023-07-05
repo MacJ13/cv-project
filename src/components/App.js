@@ -3,161 +3,171 @@ import "../styles/style.css";
 import React from "react";
 
 import Heading from "./Heading";
-import Controls from "./Controls";
+// import Controls from "./Controls";
 
-import Resume from "./Resume/Resume";
+// import Resume from "./Resume/Resume";
 
-import PersonalForm from "./Forms/PersonalForm";
-import ExperienceForm from "./Forms/ExperienceForm";
-import EducationForm from "./Forms/EducationForm";
+// import PersonalForm from "./Forms/PersonalForm";
+// import ExperienceForm from "./Forms/ExperienceForm";
+// import EducationForm from "./Forms/EducationForm";
 
-import {
-  examplePersonalData,
-  exampleWorks,
-  workData,
-  educationData,
-  exampleEducation,
-} from "../config";
+// import {
+//   examplePersonalData,
+//   exampleWorks,
+//   workData,
+//   educationData,
+//   exampleEducation,
+// } from "../config";
+import Main from "./Main";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+const App = () => {
+  return (
+    <>
+      <Heading />
+      <Main />
+    </>
+  );
+};
 
-    this.state = {
-      personal: {
-        name: "",
-        title: "",
-        photoSrc: "",
-        email: "",
-        tel: "",
-        description: "",
-      },
-      works: [{ ...workData }],
-      educations: [{ ...educationData }],
-    };
+// class App extends React.Component {
+//   constructor(props) {
+//     super(props);
 
-    this.resumeTag = React.createRef();
-  }
+//     this.state = {
+//       personal: {
+//         name: "",
+//         title: "",
+//         photoSrc: "",
+//         email: "",
+//         tel: "",
+//         description: "",
+//       },
+//       works: [{ ...workData }],
+//       educations: [{ ...educationData }],
+//     };
 
-  onChangePersonalInputs = (target) => {
-    const { name, value } = target;
-    this.setState({ personal: { ...this.state.personal, [name]: value } });
-  };
+//     this.resumeTag = React.createRef();
+//   }
 
-  onChangeWorkInputs = (target) => {
-    const { index, name, value } = target;
+//   onChangePersonalInputs = (target) => {
+//     const { name, value } = target;
+//     this.setState({ personal: { ...this.state.personal, [name]: value } });
+//   };
 
-    // const updatedWork = { ...this.state.works[index] };
-    // updatedWork[name] = value;
-    const updatedWorks = this.state.works.map((work, i) => {
-      if (i === index) {
-        return { ...work, [name]: value };
-      }
+//   onChangeWorkInputs = (target) => {
+//     const { index, name, value } = target;
 
-      return work;
-    });
+//     // const updatedWork = { ...this.state.works[index] };
+//     // updatedWork[name] = value;
+//     const updatedWorks = this.state.works.map((work, i) => {
+//       if (i === index) {
+//         return { ...work, [name]: value };
+//       }
 
-    this.setState({ works: updatedWorks });
-  };
+//       return work;
+//     });
 
-  onChangeEducationInputs = (target) => {
-    const { index, name, value } = target;
+//     this.setState({ works: updatedWorks });
+//   };
 
-    const updatedEducation = this.state.educations.map((education, i) => {
-      if (i === index) {
-        return { ...education, [name]: value };
-      }
+//   onChangeEducationInputs = (target) => {
+//     const { index, name, value } = target;
 
-      return education;
-    });
+//     const updatedEducation = this.state.educations.map((education, i) => {
+//       if (i === index) {
+//         return { ...education, [name]: value };
+//       }
 
-    this.setState({ educations: updatedEducation });
-  };
+//       return education;
+//     });
 
-  onCLickResetBtn = () => {
-    this.setState({
-      personal: {
-        name: "",
-        title: "",
-        photoSrc: "",
-        email: "",
-        tel: "",
-        description: "",
-      },
-      works: [{ ...workData }],
-      educations: [{ ...educationData }],
-    });
-  };
+//     this.setState({ educations: updatedEducation });
+//   };
 
-  onClickLoadBtn = () => {
-    this.setState({
-      personal: { ...examplePersonalData },
-      works: [...exampleWorks],
-      educations: [...exampleEducation],
-    });
-  };
+//   onCLickResetBtn = () => {
+//     this.setState({
+//       personal: {
+//         name: "",
+//         title: "",
+//         photoSrc: "",
+//         email: "",
+//         tel: "",
+//         description: "",
+//       },
+//       works: [{ ...workData }],
+//       educations: [{ ...educationData }],
+//     });
+//   };
 
-  onClickAddWorkBtn = () => {
-    this.setState({
-      works: [...this.state.works, { ...workData }],
-    });
-  };
+//   onClickLoadBtn = () => {
+//     this.setState({
+//       personal: { ...examplePersonalData },
+//       works: [...exampleWorks],
+//       educations: [...exampleEducation],
+//     });
+//   };
 
-  onClickDeleteWorkBtn = () => {
-    this.setState({ works: [...this.state.works.slice(0, -1)] });
-  };
+//   onClickAddWorkBtn = () => {
+//     this.setState({
+//       works: [...this.state.works, { ...workData }],
+//     });
+//   };
 
-  onClickAddEducationBtn = () => {
-    this.setState({
-      educations: [...this.state.educations, { ...educationData }],
-    });
-  };
+//   onClickDeleteWorkBtn = () => {
+//     this.setState({ works: [...this.state.works.slice(0, -1)] });
+//   };
 
-  onClickDeleteEducationBtn = () => {
-    this.setState({
-      educations: [...this.state.works.slice(0, -1)],
-    });
-  };
+//   onClickAddEducationBtn = () => {
+//     this.setState({
+//       educations: [...this.state.educations, { ...educationData }],
+//     });
+//   };
 
-  render() {
-    const { personal, works, educations } = this.state;
+//   onClickDeleteEducationBtn = () => {
+//     this.setState({
+//       educations: [...this.state.works.slice(0, -1)],
+//     });
+//   };
 
-    return (
-      <div className="container">
-        <Heading />
-        <Controls
-          resumeTag={this.resumeTag}
-          onClickReset={this.onCLickResetBtn}
-          onClickLoad={this.onClickLoadBtn}
-        />
+//   render() {
+// const { personal, works, educations } = this.state;
 
-        <div className="cv-form">
-          <PersonalForm
-            onChangeInputs={this.onChangePersonalInputs}
-            person={personal}
-          />
-          <ExperienceForm
-            onChangeInputs={this.onChangeWorkInputs}
-            addWork={this.onClickAddWorkBtn}
-            deleteWork={this.onClickDeleteWorkBtn}
-            works={works}
-          />
-          <EducationForm
-            onChangeInputs={this.onChangeEducationInputs}
-            educations={educations}
-            addEducation={this.onClickAddEducationBtn}
-            deleteEducation={this.onClickDeleteEducationBtn}
-          />
-        </div>
-        <Resume
-          innerRef={this.resumeTag}
-          person={personal}
-          works={works}
-          educations={educations}
-        />
-      </div>
-    );
-  }
-}
+//     return (
+//       <div className="container">
+//         <Heading />
+//         <Controls
+//           resumeTag={this.resumeTag}
+//           onClickReset={this.onCLickResetBtn}
+//           onClickLoad={this.onClickLoadBtn}
+//         />
+
+//         <div className="cv-form">
+//           <PersonalForm
+//             onChangeInputs={this.onChangePersonalInputs}
+//             person={personal}
+//           />
+//           <ExperienceForm
+//             onChangeInputs={this.onChangeWorkInputs}
+//             addWork={this.onClickAddWorkBtn}
+//             deleteWork={this.onClickDeleteWorkBtn}
+//             works={works}
+//           />
+//           <EducationForm
+//             onChangeInputs={this.onChangeEducationInputs}
+//             educations={educations}
+//             addEducation={this.onClickAddEducationBtn}
+//             deleteEducation={this.onClickDeleteEducationBtn}
+//           />
+//         </div>
+//         <Resume
+//           innerRef={this.resumeTag}
+//           person={personal}
+//           works={works}
+//           educations={educations}
+//         />
+//       </div>
+//     );
+//   }
+// }
 
 export default App;
