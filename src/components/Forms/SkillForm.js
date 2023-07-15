@@ -18,6 +18,7 @@ const SkillForm = (props) => {
         {props.skills.map((skill, i) => {
           return (
             <input
+              key={i}
               type="text"
               id={`skill-${i}`}
               placeholder={`skill ${i + 1}`}
