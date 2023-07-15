@@ -69,10 +69,18 @@ const exampleEducation = [
   },
 ];
 
+const exampleSkills = [
+  "Html, Css",
+  "JavaScript",
+  "React js",
+  "Testing and programming",
+];
+
 export {
   examplePersonalData,
   workData,
   educationData,
   exampleWorks,
   exampleEducation,
+  exampleSkills,
 };
