@@ -16,7 +16,7 @@ import {
   exampleSkills,
 } from "../config";
 
-import { useCallback, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 function Main() {
   const resumeEl = useRef(null);
@@ -72,25 +72,22 @@ function Main() {
     setWorks([...updatedWorks]);
   };
 
-  const onChangeEducationInputs = useCallback(
-    (target) => {
-      console("change educations ", educations);
-      const { index, name, value } = target;
+  const onChangeEducationInputs = (target) => {
+    console("change educations ", educations);
+    const { index, name, value } = target;
 
-      const updatedEducations = educations.map((education, i) => {
-        if (i === index) {
-          return { ...education, [name]: value };
-        }
+    const updatedEducations = educations.map((education, i) => {
+      if (i === index) {
+        return { ...education, [name]: value };
+      }
 
-        return education;
-      });
+      return education;
+    });
 
-      setEducations([...updatedEducations]);
-    },
-    [educations]
-  );
+    setEducations([...updatedEducations]);
+  };
 
-  const onClickResetBtn = useCallback(() => {
+  const onClickResetBtn = () => {
     setPersonal(() => ({
       name: "",
       title: "",
@@ -103,22 +100,7 @@ function Main() {
     setEducations(() => [{ ...educationData }]);
     if (!checkmark) return;
     setSkills([""]);
-
-    console.log(personal);
-  }, [personal]);
-
-  // const onClickResetBtn = () => {
-  //   setPersonal({
-  //     name: "",
-  //     title: "",
-  //     photoSrc: "",
-  //     email: "",
-  //     tel: "",
-  //     description: "",
-  //   });
-  //   setWorks([{ ...workData }]);
-  //   setEducations([{ ...educationData }]);
-  // };
+  };
 
   const onClickLoadBtn = () => {
     setCheckmark(true);
@@ -138,18 +120,17 @@ function Main() {
     setSkills([...skills.slice(0, -1)]);
   };
 
-  const onClickAddWorkBtn = useCallback(() => {
+  const onClickAddWorkBtn = () => {
     setWorks([...works, { ...workData }]);
-    setEducations([...educations, { ...educationData }]);
-  }, [works, educations]);
+  };
 
   const onClickDeleteWorkBtn = () => {
     setWorks([...works.slice(0, -1)]);
   };
 
-  const onClickAddEducationBtn = useCallback(() => {
+  const onClickAddEducationBtn = () => {
     setEducations([...educations, { ...educationData }]);
-  }, [educations]);
+  };
 
   const onClickDeleteEducationBtn = () => {
     setEducations([...educations.slice(0, -1)]);
