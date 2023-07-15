@@ -5,6 +5,7 @@ import Resume from "./Resume/Resume";
 import PersonalForm from "./Forms/PersonalForm";
 import ExperienceForm from "./Forms/ExperienceForm";
 import EducationForm from "./Forms/EducationForm";
+import SkillForm from "./Forms/SkillForm";
 
 import {
   examplePersonalData,
@@ -12,6 +13,7 @@ import {
   workData,
   educationData,
   exampleEducation,
+  exampleSkills,
 } from "../config";
 
 import { useCallback, useRef, useState } from "react";
@@ -31,9 +33,29 @@ function Main() {
   const [works, setWorks] = useState([{ ...workData }]);
   const [educations, setEducations] = useState([{ ...educationData }]);
 
+  const [skills, setSkills] = useState([""]);
+
+  const [checkmark, setCheckmark] = useState(true);
+
+  const onChangeCheckmark = () => {
+    setCheckmark(!checkmark);
+  };
+
   const onChangePersonalInputs = (target) => {
     const { name, value } = target;
     setPersonal({ ...personal, [name]: value });
+  };
+
+  const onChangeSkillInputs = (target) => {
+    const { index, value } = target;
+    const updatedSkills = skills.map((skill, i) => {
+      if (i === index) {
+        return value;
+      }
+      return skill;
+    });
+
+    setSkills([...updatedSkills]);
   };
 
   const onChangeWorkInputs = (target) => {
@@ -79,6 +101,8 @@ function Main() {
     }));
     setWorks(() => [{ ...workData }]);
     setEducations(() => [{ ...educationData }]);
+    if (!checkmark) return;
+    setSkills([""]);
 
     console.log(personal);
   }, [personal]);
@@ -97,9 +121,21 @@ function Main() {
   // };
 
   const onClickLoadBtn = () => {
+    setCheckmark(true);
     setPersonal({ ...examplePersonalData });
     setWorks([...exampleWorks]);
     setEducations([...exampleEducation]);
+    setSkills([...exampleSkills]);
+  };
+
+  const onClickAddSkillBtn = () => {
+    if (!checkmark) return;
+    setSkills([...skills, ""]);
+  };
+
+  const onClickDeleteSkillBtn = () => {
+    if (!checkmark) return;
+    setSkills([...skills.slice(0, -1)]);
   };
 
   const onClickAddWorkBtn = useCallback(() => {
@@ -132,6 +168,14 @@ function Main() {
           onChangeInputs={onChangePersonalInputs}
           person={personal}
         />
+        <SkillForm
+          skills={skills}
+          checkmark={checkmark}
+          onChangeCheckmark={onChangeCheckmark}
+          onChangeInputs={onChangeSkillInputs}
+          addSkill={onClickAddSkillBtn}
+          deleteSkill={onClickDeleteSkillBtn}
+        />
         <ExperienceForm
           onChangeInputs={onChangeWorkInputs}
           addWork={onClickAddWorkBtn}
@@ -149,8 +193,10 @@ function Main() {
         //   innerRef={this.resumeTag}
         innerRef={resumeEl}
         person={personal}
+        skills={skills}
         works={works}
         educations={educations}
+        checkmark={checkmark}
       />
     </div>
   );
