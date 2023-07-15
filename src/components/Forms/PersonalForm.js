@@ -1,5 +1,6 @@
 import React from "react";
 import Form from "./Form";
+import FormHeading from "./FormHeading";
 
 const PersonalForm = (props) => {
   const { name, title, email, tel, description } = props.person;
@@ -17,7 +18,8 @@ const PersonalForm = (props) => {
   };
 
   return (
-    <Form title="Personal Information">
+    <Form>
+      <FormHeading title="Personal Information" />
       <div className="form-column">
         <input
           type="text"

@@ -3,6 +3,7 @@ import Form from "./Form";
 import FormButtons from "./FormButtons";
 
 import { memo } from "react";
+import FormHeading from "./FormHeading";
 
 const EducationForm = (props) => {
   console.log("Render education form");
@@ -75,7 +76,8 @@ const EducationForm = (props) => {
   };
 
   return (
-    <Form title="Education Experience">
+    <Form>
+      <FormHeading title="Education Experience" />
       {renderEducationInputs()}
       <FormButtons
         formLength={props.educations.length}

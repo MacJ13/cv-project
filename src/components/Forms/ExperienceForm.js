@@ -3,6 +3,7 @@ import Form from "./Form";
 import FormButtons from "./FormButtons";
 
 import { useRef, memo } from "react";
+import FormHeading from "./FormHeading";
 
 const ExperienceForm = (props) => {
   console.log("Render work form");
@@ -102,7 +103,8 @@ const ExperienceForm = (props) => {
   };
 
   return (
-    <Form title="Work Experience">
+    <Form>
+      <FormHeading title="Work Experience" />
       {renderWorkInputs()}
       <FormButtons
         formLength={props.works.length}
