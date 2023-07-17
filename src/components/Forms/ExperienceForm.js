@@ -6,7 +6,6 @@ import { useRef, memo } from "react";
 import FormHeading from "./FormHeading";
 
 const ExperienceForm = (props) => {
-  console.log("Render work form");
   const itemsRef = useRef(null);
 
   function getMap() {
@@ -19,13 +18,10 @@ const ExperienceForm = (props) => {
   }
 
   const handleInputChange = (e) => {
-    // console.log("value: ", e.target.value);
-    // console.log("column: ");
     const { name, value } = e.target;
     const { column } = e.target.dataset;
     const { index } = e.target.closest(".form-column").dataset;
 
-    console.log({ column });
     const map = getMap();
     const node = map.get(+column);
     console.log({ node });

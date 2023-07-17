@@ -6,7 +6,6 @@ import { memo } from "react";
 import FormHeading from "./FormHeading";
 
 const EducationForm = (props) => {
-  console.log("Render education form");
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     const { index } = e.target.closest(".form-column").dataset;

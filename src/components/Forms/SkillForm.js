@@ -10,8 +10,6 @@ const SkillForm = (props) => {
     props.onChangeInputs({ index, value });
   };
 
-  console.log("render skill form");
-
   const renderInputs = () => {
     return (
       <div className="form-column">
