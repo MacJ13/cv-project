@@ -2,29 +2,14 @@ import React from "react";
 import Form from "./Form";
 import FormButtons from "./FormButtons";
 
-import { useRef, memo } from "react";
+import { memo } from "react";
 import FormHeading from "./FormHeading";
 
 const ExperienceForm = (props) => {
-  const itemsRef = useRef(null);
-
-  function getMap() {
-    if (!itemsRef.current) {
-      // Initialize the Map on first uage.
-      itemsRef.current = new Map();
-    }
-
-    return itemsRef.current;
-  }
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    const { column } = e.target.dataset;
     const { index } = e.target.closest(".form-column").dataset;
 
-    const map = getMap();
-    const node = map.get(+column);
-    console.log({ node });
     // convert index from string to number
     const target = { index: +index, name, value };
     props.onChangeInputs(target);
@@ -35,19 +20,7 @@ const ExperienceForm = (props) => {
 
     return works.map((work, i) => {
       return (
-        <div
-          key={i}
-          ref={(node) => {
-            const map = getMap();
-            if (node) {
-              map.set(i, node);
-            } else {
-              map.delete(i);
-            }
-          }}
-          data-index={i}
-          className="form-column"
-        >
+        <div key={i} data-index={i} className="form-column">
           <input
             data-column={i}
             type="text"
