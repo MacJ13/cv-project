@@ -171,7 +171,6 @@ function Main() {
         />
       </div>
       <Resume
-        //   innerRef={this.resumeTag}
         innerRef={resumeEl}
         person={personal}
         skills={skills}
