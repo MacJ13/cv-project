@@ -1,6 +1,6 @@
 import React from "react";
 
-import defaultImg from "../../assets/default.png";
+import defaultImg from "../../assets/avatar1.jpg";
 import ResumeDetails from "./ResumeDetails";
 
 const Resume = (props) => {
@@ -67,37 +67,48 @@ const Resume = (props) => {
   };
 
   return (
-    <div ref={props.innerRef} className="resume-draft">
-      <div className="resume-column-sm">
-        <h2 className="resume-name">{name}</h2>
-        <h3 className="resume-title">{title}</h3>
-        <img
-          className="resume-photo"
-          src={photoSrc || defaultImg}
-          alt="default avatar"
-        />
+    <div className="resume">
+      <div ref={props.innerRef} className="resume-draft">
+        <div className="resume-column-sm">
+          <h2 className="resume-name">{name}</h2>
+          <h3 className="resume-title">{title}</h3>
+          <div className="resume-avatar">
+            <img
+              className="resume-photo"
+              src={photoSrc || defaultImg}
+              alt="default avatar"
+            />
+          </div>
 
-        <ResumeDetails cls="resume-personal-details" title="Personal Data">
-          <div className="resume-personal-row">email: {email}</div>
-          <div className="resume-personal-row">tel: {tel}</div>
-        </ResumeDetails>
-        {props.checkmark && (
-          <ResumeDetails cls="resume-personal-details" title="Skills">
-            {renderSkills()}
+          <ResumeDetails cls="resume-personal-details" title="Personal Data">
+            <div className="resume-personal-row">
+              <strong>E-mail</strong>
+              <br /> {email}
+            </div>
+            <div className="resume-personal-row">
+              <strong>Phone number</strong>
+              <br />
+              {tel}
+            </div>
           </ResumeDetails>
-        )}
-      </div>
+          {props.checkmark && (
+            <ResumeDetails cls="resume-personal-details" title="Skills">
+              {renderSkills()}
+            </ResumeDetails>
+          )}
+        </div>
 
-      <div className="resume-column-lg">
-        <ResumeDetails cls="resume-info" title="Description">
-          <em>{description}</em>
-        </ResumeDetails>
-        <ResumeDetails cls="resume-info" title="Experience">
-          {renderWork()}
-        </ResumeDetails>
-        <ResumeDetails cls="resume-info" title="Education">
-          {renderEducation()}
-        </ResumeDetails>
+        <div className="resume-column-lg">
+          <ResumeDetails cls="resume-info" title="Description">
+            <em>{description}</em>
+          </ResumeDetails>
+          <ResumeDetails cls="resume-info" title="Experience">
+            {renderWork()}
+          </ResumeDetails>
+          <ResumeDetails cls="resume-info" title="Education">
+            {renderEducation()}
+          </ResumeDetails>
+        </div>
       </div>
     </div>
   );
