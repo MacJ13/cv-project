@@ -1,7 +1,7 @@
 const Heading = () => {
   return (
     <div className="heading">
-      <h1 className="h1">Resume Creator</h1>
+      <h1 className="h1">Resume CV Creator</h1>
     </div>
   );
 };
