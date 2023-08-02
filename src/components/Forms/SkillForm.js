@@ -3,11 +3,11 @@ import FormButtons from "./FormButtons";
 import FormHeading from "./FormHeading";
 
 const SkillForm = (props) => {
-  const handleInputChange = (e) => {
-    const { value, id } = e.target;
-    const index = +id.split("").pop();
+  const handleInputChange = (e, id) => {
+    const { value } = e.target;
+    // const index = +id.split("").pop();
 
-    props.onChangeInputs({ index, value });
+    props.onChangeInputs({ id, value });
   };
 
   const renderInputs = () => {
@@ -16,13 +16,15 @@ const SkillForm = (props) => {
         {props.skills.map((skill, i) => {
           return (
             <input
-              key={i}
+              key={skill.id}
               type="text"
               id={`skill-${i}`}
               placeholder={`skill ${i + 1}`}
-              value={skill}
+              value={skill.name}
               disabled={!props.checkmark}
-              onChange={handleInputChange}
+              onChange={(e) => {
+                handleInputChange(e, skill.id);
+              }}
             />
           );
         })}

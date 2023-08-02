@@ -6,12 +6,11 @@ import { memo } from "react";
 import FormHeading from "./FormHeading";
 
 const ExperienceForm = (props) => {
-  const handleInputChange = (e) => {
+  const handleInputChange = (e, id) => {
     const { name, value } = e.target;
-    const { index } = e.target.closest(".form-column").dataset;
 
     // convert index from string to number
-    const target = { index: +index, name, value };
+    const target = { id, name, value };
     props.onChangeInputs(target);
   };
 
@@ -20,11 +19,13 @@ const ExperienceForm = (props) => {
 
     return works.map((work, i) => {
       return (
-        <div key={i} data-index={i} className="form-column">
+        <div key={work.id} data-index={i} className="form-column">
           <input
             data-column={i}
             type="text"
-            onChange={handleInputChange}
+            onChange={(e) => {
+              handleInputChange(e, work.id);
+            }}
             id={`work-position-${i}`}
             placeholder="position"
             value={work.position}
@@ -33,7 +34,9 @@ const ExperienceForm = (props) => {
           <input
             data-column={i}
             type="text"
-            onChange={handleInputChange}
+            onChange={(e) => {
+              handleInputChange(e, work.id);
+            }}
             id={`work-company-${i}`}
             placeholder="company"
             value={work.company}
@@ -42,7 +45,9 @@ const ExperienceForm = (props) => {
           <input
             data-column={i}
             type="text"
-            onChange={handleInputChange}
+            onChange={(e) => {
+              handleInputChange(e, work.id);
+            }}
             id={`work-city-${i}`}
             placeholder="city"
             value={work.city}
@@ -51,7 +56,9 @@ const ExperienceForm = (props) => {
           <input
             data-column={i}
             type="text"
-            onChange={handleInputChange}
+            onChange={(e) => {
+              handleInputChange(e, work.id);
+            }}
             id={`work-from-${i}`}
             placeholder="from"
             value={work.from}
@@ -60,7 +67,9 @@ const ExperienceForm = (props) => {
           <input
             data-column={i}
             type="text"
-            onChange={handleInputChange}
+            onChange={(e) => {
+              handleInputChange(e, work.id);
+            }}
             id={`work-to-${i}`}
             placeholder="to"
             value={work.to}

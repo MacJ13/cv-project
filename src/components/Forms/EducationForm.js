@@ -6,12 +6,12 @@ import { memo } from "react";
 import FormHeading from "./FormHeading";
 
 const EducationForm = (props) => {
-  const handleInputChange = (e) => {
+  const handleInputChange = (e, id) => {
     const { name, value } = e.target;
-    const { index } = e.target.closest(".form-column").dataset;
+    // const { index } = e.target.closest(".form-column").dataset;
 
     // convert index from string to number
-    const target = { index: +index, name, value };
+    const target = { id, name, value };
     props.onChangeInputs(target);
   };
 
@@ -20,10 +20,12 @@ const EducationForm = (props) => {
 
     return educations.map((education, i) => {
       return (
-        <div key={i} data-index={i} className="form-column">
+        <div key={education.id} data-index={i} className="form-column">
           <input
             type="text"
-            onChange={handleInputChange}
+            onChange={(e) => {
+              handleInputChange(e, education.id);
+            }}
             id={`education-university-${i}`}
             placeholder="university"
             value={education.university}
@@ -31,7 +33,9 @@ const EducationForm = (props) => {
           />
           <input
             type="text"
-            onChange={handleInputChange}
+            onChange={(e) => {
+              handleInputChange(e, education.id);
+            }}
             id={`education-city-${i}`}
             placeholder="city"
             value={education.city}
@@ -39,7 +43,9 @@ const EducationForm = (props) => {
           />
           <input
             type="text"
-            onChange={handleInputChange}
+            onChange={(e) => {
+              handleInputChange(e, education.id);
+            }}
             id={`education-degree-${i}`}
             placeholder="degree"
             value={education.degree}
@@ -47,7 +53,9 @@ const EducationForm = (props) => {
           />
           <input
             type="text"
-            onChange={handleInputChange}
+            onChange={(e) => {
+              handleInputChange(e, education.id);
+            }}
             id={`education-subject-${i}`}
             placeholder="subject"
             value={education.subject}
@@ -55,7 +63,9 @@ const EducationForm = (props) => {
           />
           <input
             type="text"
-            onChange={handleInputChange}
+            onChange={(e) => {
+              handleInputChange(e, education.id);
+            }}
             id={`education-from-${i}`}
             placeholder="from"
             value={education.from}
@@ -63,7 +73,9 @@ const EducationForm = (props) => {
           />
           <input
             type="text"
-            onChange={handleInputChange}
+            onChange={(e) => {
+              handleInputChange(e, education.id);
+            }}
             id={`education-to-${i}`}
             placeholder="to"
             value={education.to}
