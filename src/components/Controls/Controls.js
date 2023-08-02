@@ -1,5 +1,6 @@
 import React from "react";
 import { useReactToPrint } from "react-to-print";
+import Button from "./ControlButton";
 
 const Controls = (props) => {
   const handlePrint = useReactToPrint({
@@ -9,19 +10,15 @@ const Controls = (props) => {
 
   return (
     <div className="controls">
-      <button id="btn-load" onClick={props.onClickLoad} className="control-btn">
+      <Button id="btn-load" onClick={props.onClickLoad}>
         Load Example
-      </button>
-      <button id="btn-pdf" className="control-btn" onClick={handlePrint}>
+      </Button>
+      <Button id="btn-pdf" onClick={handlePrint}>
         Create PDF
-      </button>
-      <button
-        id="btn-reset"
-        onClick={props.onClickReset}
-        className="control-btn"
-      >
-        Reset All{" "}
-      </button>
+      </Button>
+      <Button id="btn-reset" onClick={props.onClickReset}>
+        Reset All
+      </Button>
     </div>
   );
 };
