@@ -68,6 +68,7 @@ button:disabled {
   /* grid-template-columns: repeat(2, 1fr); */
   grid-template-columns: 2fr 3fr;
   padding: 0 5%;
+  margin-bottom: 2rem;
 }
 
 /* /////////////// HEADING ///////////////////////// */
@@ -82,18 +83,17 @@ button:disabled {
       #1660a1 100%
     ),
     url(../assets/cv-bg1.webp);
-  background-position: left;
+  background-position: right;
   grid-column: span 2;
-  text-align: center;
-  padding: 4.5rem 1rem 4.5rem 1rem;
+  padding: 2.75rem 1rem 3.75rem 1rem;
   text-transform: uppercase;
-
-  display: flex;
+  text-align: center;
+  /* display: flex;
 
   justify-content: center;
-  align-items: center;
-
-  border-bottom: 1px solid #404040;
+  align-items: center; */
+  /* 
+  border-bottom: 1px solid #404040; */
 }
 
 .heading > .h1 {
@@ -108,10 +108,13 @@ button:disabled {
   display: flex;
   justify-content: center;
   gap: 10rem;
-  padding: 2rem 5rem;
+  padding: 2rem 5rem 3rem 5rem;
+
+  margin-top: -3.75rem;
 }
 
 .control-btn {
+  position: relative;
   flex: 1;
   padding: 0.75rem 0rem;
 
@@ -119,10 +122,27 @@ button:disabled {
   color: #fff;
   letter-spacing: 0.1rem;
   border-radius: 0.25rem;
+
+  overflow: hidden;
 }
 
-.control-btn:active {
-  opacity: 0.85;
+.control-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.control-btn:hover::before {
+  background-color: rgba(3, 68, 125, 0.1);
+}
+
+.control-btn:active::before {
+  background-color: rgba(3, 68, 125, 0.175);
 }
 
 #btn-load {
@@ -253,19 +273,23 @@ button:disabled {
   border-radius: 0.25rem;
 }
 
+.form-btn:hover {
+  background-color: #eaeaea;
+  box-shadow: 0px 0px 5px 1px #ececec;
+}
+
 .form-btn:active {
-  opacity: 0.75;
+  box-shadow: 0px 0px 5px 2px #ececec;
+  background-color: #e6e3e3;
 }
 
 /* /////////////// CV RESUME ///////////////////// */
 
 .resume {
+  position: relative;
   /* transform: scale(0.8); */
   width: 90%;
-  /* height: 100vh; */
   margin-left: auto;
-  height: 100%;
-  min-height: 100vh;
 }
 
 .resume-draft {
@@ -278,14 +302,14 @@ button:disabled {
   font-size: 80%;
 
   max-width: 60rem;
-  height: 100vh;
+  max-height: 40rem;
   min-height: 100vh;
 
   background-color: #dae7f6;
 
   position: sticky;
   top: 0;
-  overflow-y: auto;
+  overflow: auto;
 
   box-shadow: 0px 0px 7px 1px #d0d0d0;
 }
@@ -445,4 +469,24 @@ h3.resume-title {
 
 .resume-draft::-webkit-scrollbar-thumb:active {
   background-color: #196db797;
+}
+
+/* FOOTER */
+
+.footer {
+  color: #fff;
+  background-color: #1660a1;
+  padding: 0.5rem;
+}
+
+.footer-copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-link {
+  display: block;
+  fill: #fff;
 }
