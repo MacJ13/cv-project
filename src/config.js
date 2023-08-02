@@ -1,5 +1,7 @@
 import exampleImg from "./assets/example.jpg";
 
+import { v4 as uuidv4 } from "uuid";
+
 const examplePersonalData = {
   name: "Waclaw Jezioranski",
   title: "Senior Java Developer",
@@ -10,6 +12,7 @@ const examplePersonalData = {
 };
 
 const workData = {
+  id: uuidv4(),
   position: "",
   company: "",
   city: "",
@@ -19,6 +22,7 @@ const workData = {
 
 const exampleWorks = [
   {
+    id: uuidv4(),
     position: "Senior Web Developer",
     company: "Facebook Inc.",
     city: "Menlo Park",
@@ -26,6 +30,7 @@ const exampleWorks = [
     to: "Present",
   },
   {
+    id: uuidv4(),
     position: "Junior Web Developer",
     company: "Tesla Inc.",
     city: "Palo Alto",
@@ -33,6 +38,7 @@ const exampleWorks = [
     to: "2015",
   },
   {
+    id: uuidv4(),
     position: "UI / UX Designer",
     company: "Google LLC",
     city: "Mountain View",
@@ -42,6 +48,7 @@ const exampleWorks = [
 ];
 
 const educationData = {
+  id: uuidv4(),
   university: "",
   city: "",
   degree: "",
@@ -52,6 +59,7 @@ const educationData = {
 
 const exampleEducation = [
   {
+    id: uuidv4(),
     university: "University of Technology",
     city: "Oklahoma",
     degree: "Master",
@@ -60,6 +68,7 @@ const exampleEducation = [
     to: "2010",
   },
   {
+    id: uuidv4(),
     university: "University of Design Art",
     city: "New York",
     degree: "Bachelor",
@@ -69,17 +78,20 @@ const exampleEducation = [
   },
 ];
 
+const skillsData = { id: uuidv4(), name: "" };
+
 const exampleSkills = [
-  "Html, Css",
-  "JavaScript",
-  "React js",
-  "Testing and programming",
+  { id: uuidv4(), name: "Html, Css" },
+  { id: uuidv4(), name: "JavaScript" },
+  { id: uuidv4(), name: "React js" },
+  { id: uuidv4(), name: "Testing and programming" },
 ];
 
 export {
   examplePersonalData,
   workData,
   educationData,
+  skillsData,
   exampleWorks,
   exampleEducation,
   exampleSkills,

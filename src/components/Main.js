@@ -14,9 +14,11 @@ import {
   educationData,
   exampleEducation,
   exampleSkills,
+  skillsData,
 } from "../config";
 
 import { useRef, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 function Main() {
   const resumeEl = useRef(null);
@@ -30,10 +32,10 @@ function Main() {
     description: "",
   });
 
-  const [works, setWorks] = useState([{ ...workData }]);
-  const [educations, setEducations] = useState([{ ...educationData }]);
+  const [works, setWorks] = useState([workData]);
+  const [educations, setEducations] = useState([educationData]);
 
-  const [skills, setSkills] = useState([""]);
+  const [skills, setSkills] = useState([skillsData]);
 
   const [checkmark, setCheckmark] = useState(true);
 
@@ -47,10 +49,10 @@ function Main() {
   };
 
   const onChangeSkillInputs = (target) => {
-    const { index, value } = target;
+    const { id, value } = target;
     const updatedSkills = skills.map((skill, i) => {
-      if (i === index) {
-        return value;
+      if (skill.id === id) {
+        return { ...skill, name: value };
       }
       return skill;
     });
@@ -59,10 +61,11 @@ function Main() {
   };
 
   const onChangeWorkInputs = (target) => {
-    const { index, name, value } = target;
+    const { id, name, value } = target;
+    console.log(target);
 
-    const updatedWorks = works.map((work, i) => {
-      if (i === index) {
+    const updatedWorks = works.map((work) => {
+      if (work.id === id) {
         return { ...work, [name]: value };
       }
 
@@ -73,11 +76,10 @@ function Main() {
   };
 
   const onChangeEducationInputs = (target) => {
-    console("change educations ", educations);
-    const { index, name, value } = target;
+    const { id, name, value } = target;
 
-    const updatedEducations = educations.map((education, i) => {
-      if (i === index) {
+    const updatedEducations = educations.map((education) => {
+      if (education.id === id) {
         return { ...education, [name]: value };
       }
 
@@ -96,15 +98,15 @@ function Main() {
       tel: "",
       description: "",
     }));
-    setWorks(() => [{ ...workData }]);
-    setEducations(() => [{ ...educationData }]);
+    setWorks(() => [workData]);
+    setEducations(() => [educationData]);
     if (!checkmark) return;
-    setSkills([""]);
+    setSkills([skillsData]);
   };
 
   const onClickLoadBtn = () => {
     setCheckmark(true);
-    setPersonal({ ...examplePersonalData });
+    setPersonal(examplePersonalData);
     setWorks([...exampleWorks]);
     setEducations([...exampleEducation]);
     setSkills([...exampleSkills]);
@@ -112,7 +114,7 @@ function Main() {
 
   const onClickAddSkillBtn = () => {
     if (!checkmark) return;
-    setSkills([...skills, ""]);
+    setSkills([...skills, { id: uuidv4(), name: "" }]);
   };
 
   const onClickDeleteSkillBtn = () => {
@@ -121,7 +123,7 @@ function Main() {
   };
 
   const onClickAddWorkBtn = () => {
-    setWorks([...works, { ...workData }]);
+    setWorks([...works, { id: uuidv4(), ...workData }]);
   };
 
   const onClickDeleteWorkBtn = () => {
@@ -129,7 +131,7 @@ function Main() {
   };
 
   const onClickAddEducationBtn = () => {
-    setEducations([...educations, { ...educationData }]);
+    setEducations([...educations, { id: uuidv4(), ...educationData }]);
   };
 
   const onClickDeleteEducationBtn = () => {
