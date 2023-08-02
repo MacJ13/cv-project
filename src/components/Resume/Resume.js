@@ -9,10 +9,10 @@ const Resume = (props) => {
   const renderSkills = () => {
     const { skills } = props;
 
-    return skills.map((skill, i) => {
+    return skills.map((skill) => {
       return (
-        <div key={i} className="resume-personal-row">
-          {skill}
+        <div key={skill.id} className="resume-personal-row">
+          {skill.name}
         </div>
       );
     });
