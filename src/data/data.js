@@ -1,4 +1,4 @@
-import exampleImg from "./assets/example.jpg";
+import exampleImg from "../assets/example.jpg";
 
 import { v4 as uuidv4 } from "uuid";
 
