@@ -1,4 +1,4 @@
-import Controls from "./Controls";
+import Controls from "./Controls/Controls";
 
 import Resume from "./Resume/Resume";
 
