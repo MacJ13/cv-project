@@ -7,13 +7,6 @@ const Controls = (props) => {
       <button id="btn-load" onClick={props.onClickLoad} className="control-btn">
         Load Example
       </button>
-      <button
-        id="btn-reset"
-        onClick={props.onClickReset}
-        className="control-btn"
-      >
-        Reset All{" "}
-      </button>
       <ReactToPrint
         documentTitle="Simple CV"
         trigger={() => {
@@ -25,6 +18,14 @@ const Controls = (props) => {
         }}
         content={() => props.resumeTag.current}
       />
+
+      <button
+        id="btn-reset"
+        onClick={props.onClickReset}
+        className="control-btn"
+      >
+        Reset All{" "}
+      </button>
     </div>
   );
 };
