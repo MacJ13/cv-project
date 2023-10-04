@@ -1,6 +1,10 @@
-const Button = ({ id, onClick, children }) => {
+const Button = ({ bgColor, onClick, children }) => {
   return (
-    <button id={id} className="control-btn" onClick={onClick}>
+    <button
+      style={{ backgroundColor: bgColor }}
+      className="control-btn"
+      onClick={onClick}
+    >
       {children}
     </button>
   );
