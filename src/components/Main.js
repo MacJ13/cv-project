@@ -23,7 +23,7 @@ import { useReactToPrint } from "react-to-print";
 import Container from "./Container";
 
 function Main() {
-  const resumeEl = useRef(null);
+  const resumeRef = useRef(null);
 
   const [personal, setPersonal] = useState({
     name: "",
@@ -92,7 +92,7 @@ function Main() {
   };
 
   const onClickPrintBtn = useReactToPrint({
-    content: () => resumeEl.current,
+    content: () => resumeRef.current,
     documentTitle: "CV-resume",
   });
 
@@ -180,7 +180,7 @@ function Main() {
         />
       </div>
       <Resume
-        innerRef={resumeEl}
+        innerRef={resumeRef}
         person={personal}
         skills={skills}
         works={works}
