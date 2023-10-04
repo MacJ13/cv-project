@@ -139,7 +139,13 @@ button:disabled {
 .heading > .h1 {
   font-family: Georgia, serif;
   /* padding-bottom: 0.75rem;
-  border-bottom: 2px solid #f0f8ff; */
+   border-bottom: 2px solid #f0f8ff; */
+}
+
+@media (max-width: 800px) {
+  .heading > .h1 {
+    font-size: 2.5rem;
+  }
 }
 
 /* ////////////////// CONTROLS BUTTONS ///////////////// */
@@ -187,6 +193,7 @@ button:disabled {
 @media (max-width: 800px) {
   .control-btn {
     padding: 1.25rem 0rem;
+    border-radius: 0.75rem;
   }
 }
 
@@ -208,9 +215,8 @@ button:disabled {
 
 @media (max-width: 800px) {
   .control-icon {
-    width: 3rem;
-    height: 3rem;
-    fill: #fff;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 }
 
