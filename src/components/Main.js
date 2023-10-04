@@ -20,6 +20,7 @@ import {
 import { useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useReactToPrint } from "react-to-print";
+import Container from "./Container";
 
 function Main() {
   const resumeEl = useRef(null);
@@ -145,7 +146,7 @@ function Main() {
   };
 
   return (
-    <div className="container">
+    <Container>
       <Controls
         onClickReset={onClickResetBtn}
         onClickLoad={onClickLoadBtn}
@@ -186,7 +187,7 @@ function Main() {
         educations={educations}
         checkmark={checkmark}
       />
-    </div>
+    </Container>
   );
 }
 
