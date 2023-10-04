@@ -1,15 +1,9 @@
 import React from "react";
-import { useReactToPrint } from "react-to-print";
 import Button from "./ControlButton";
 import { cvIcon, pdfIcon, resetIcon } from "../Icons/icons";
 import { COLOR_BUTTONS } from "../../utils/constants";
 
 const Controls = (props) => {
-  const handlePrint = useReactToPrint({
-    content: () => props.resumeTag.current,
-    documentTitle: "CV-resume",
-  });
-
   const { load, pdf, reset } = COLOR_BUTTONS;
 
   return (
@@ -19,7 +13,7 @@ const Controls = (props) => {
 
         {cvIcon}
       </Button>
-      <Button bgColor={pdf} onClick={handlePrint}>
+      <Button bgColor={pdf} onClick={props.onClickPrint}>
         <span>Create PDF</span>
         {pdfIcon}
       </Button>

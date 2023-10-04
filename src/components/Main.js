@@ -19,6 +19,7 @@ import {
 
 import { useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { useReactToPrint } from "react-to-print";
 
 function Main() {
   const resumeEl = useRef(null);
@@ -89,6 +90,11 @@ function Main() {
     setEducations([...updatedEducations]);
   };
 
+  const onClickPrintBtn = useReactToPrint({
+    content: () => resumeEl.current,
+    documentTitle: "CV-resume",
+  });
+
   const onClickResetBtn = () => {
     setPersonal(() => ({
       name: "",
@@ -141,9 +147,9 @@ function Main() {
   return (
     <div className="container">
       <Controls
-        resumeTag={resumeEl}
         onClickReset={onClickResetBtn}
         onClickLoad={onClickLoadBtn}
+        onClickPrint={onClickPrintBtn}
       />
 
       <div className="cv-form">
