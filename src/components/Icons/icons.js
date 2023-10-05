@@ -66,9 +66,9 @@ export const pdfIcon = (
   </svg>
 );
 
-export const optionsIcon = (
+export const settingsIcon = (
   <svg
-    className="options-icon"
+    className="settings-icon"
     width="135.45909mm"
     height="135.47311mm"
     viewBox="0 0 135.45909 135.47311"
