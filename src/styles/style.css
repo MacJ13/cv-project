@@ -95,6 +95,7 @@ button:disabled {
   display: grid;
   /* grid-template-columns: repeat(2, 1fr); */
   grid-template-columns: 2fr 3fr;
+  column-gap: 2rem;
   padding: 0 5%;
   margin-bottom: 2rem;
 }
@@ -120,6 +121,7 @@ button:disabled {
   background-position: right;
   grid-column: span 2;
   padding: 3.75rem 1rem 4.75rem 1rem;
+  position: relative;
   text-transform: uppercase;
   text-align: center;
   /* display: flex;
@@ -238,16 +240,9 @@ button:disabled {
 .control-btn:active::before {
   background-color: rgba(3, 68, 125, 0.175);
 }
-
-#btn-load {
-  background-color: #93c5fd;
-}
-#btn-reset {
-  background-color: #f87171;
-}
-
-#btn-pdf {
-  background-color: #34d399;
+.control-btn:focus {
+  outline: 2px solid white;
+  border-radius: 0.25rem;
 }
 
 /* /////////////// CV FORMS ///////////////////// */
@@ -318,7 +313,6 @@ button:disabled {
   border-radius: 0.25rem;
 
   box-shadow: 0px 0px 5px 1px #ececec;
-  /* border: 1px solid #efefef; */
 
   border: 1px solid #e5e4e4;
 }
@@ -389,14 +383,12 @@ button:disabled {
 
 .resume {
   position: relative;
-  /* transform: scale(0.8); */
-  width: 90%;
-  margin-left: auto;
+  width: 100%;
+  box-shadow: 0px 0px 7px 1px #d0d0d0;
 }
 
 @media screen and (max-width: 1000px) {
   .resume {
-    margin-left: 0;
     width: 100%;
   }
 }
@@ -404,12 +396,12 @@ button:disabled {
 .resume-draft {
   display: grid;
   /* grid-template-columns: 15rem 1fr; */
-  grid-template-columns: 1fr 2fr;
+  /* grid-template-columns: 1fr 2fr; */
 
   width: 100%;
   font-size: 80%;
 
-  max-width: 60rem;
+  /* max-width: 60rem; */
   max-height: 40rem;
   min-height: 100vh;
 
@@ -418,8 +410,66 @@ button:disabled {
   position: sticky;
   top: 0;
   overflow: auto;
+  width: 100%;
+}
 
-  box-shadow: 0px 0px 7px 1px #d0d0d0;
+.resume-top {
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content 1fr;
+}
+
+.resume-top .resume-general {
+  display: flex;
+  justify-content: space-between;
+}
+
+.resume-top .resume-name {
+  font-size: 2.75rem;
+}
+
+.resume-top .resume-title {
+  margin-bottom: 2rem;
+}
+
+.resume-top .resume-avatar {
+  height: 12.5rem;
+  width: 12.5rem;
+  margin-bottom: 0;
+}
+
+.resume-top .resume-personal-details {
+  display: flex;
+  gap: 2.5rem;
+  /* justify-content: space-between; */
+  margin-bottom: 0;
+}
+
+.resume-top .resume-personal-details > .h4 {
+  display: none;
+}
+
+.resume-top .resume-personal-details > .resume-personal-row {
+  font-size: 0.8rem;
+  margin-bottom: 0rem !important;
+  padding: 0rem;
+}
+
+.resume-left {
+  grid-template-columns: 1fr 2fr;
+}
+
+.resume-right {
+  grid-template-columns: 2fr 1fr;
+}
+
+.resume-right > .resume-column-sm {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.resume-right > .resume-column-lg {
+  grid-row: 1;
+  grid-column: 1;
 }
 
 @media screen and (max-width: 1000px) {
@@ -435,8 +485,9 @@ button:disabled {
   padding: 1rem 0;
   /* background-color: #0369a1; */
   background-color: rgb(3, 68, 125);
+  /* background-color: #065f46; */
+  /* background-color: #be123c; */
   color: #f7f8f8;
-  overflow: hidden;
 }
 
 .resume-column-sm > *:not(.resume-personal-details) {
@@ -483,13 +534,10 @@ h3.resume-title {
 
 .resume-avatar > img {
   display: block;
-  padding: 1rem 0;
   height: 100%;
   width: 100%;
   object-fit: cover;
   border-radius: 2px;
-  /* box-shadow: 0px 0px 2px 4px rgb(0, 39, 74); */
-  /* background-color: #93c5fd; */
 }
 
 .resume-personal-details {
@@ -511,13 +559,18 @@ h3.resume-title {
   padding: 0 1rem;
 }
 
+.resume-personal-row.skill {
+  margin-bottom: 0.5rem;
+  padding: 0;
+}
+
 .resume-info:not(:last-child) {
   margin-bottom: 2.5rem;
 }
 
 .resume-info > .h4 {
   /* color: #0369a1; */
-  color: rgb(3, 68, 125);
+  color: #03447d;
   border-bottom: 1px solid #e2e2e2;
   padding-bottom: 0.25rem;
   margin-bottom: 0.5rem;
@@ -559,7 +612,6 @@ h3.resume-title {
 
 /* Chrome, Edge and Safari */
 .resume-draft::-webkit-scrollbar {
-  width: 4px;
   width: 4px;
 }
 .resume-draft::-webkit-scrollbar-track {
@@ -606,4 +658,138 @@ h3.resume-title {
 .footer-link {
   display: block;
   fill: #fff;
+}
+
+/* 
+//////////////////////////////////////////////////
+settings //////////////////////
+//////////////////////////////////////////////
+*/
+
+.settings {
+  /* display: none; */
+  background-color: #fff;
+  box-shadow: 0px 0px 7px 1px #d0d0d0;
+  height: 100%;
+  left: 0;
+  max-width: 28rem;
+
+  position: fixed;
+  top: 0;
+
+  width: 100%;
+  z-index: 5;
+}
+
+.settings-wrapper {
+  padding: 0rem 1rem 1rem 1rem;
+}
+
+.settings > .h3 {
+  font-size: 1.5rem;
+  border: 1px solid #e2e2e2;
+  padding: 1rem;
+  text-align: center;
+}
+
+.settings-row {
+  padding: 1.75rem 1.5rem;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+
+  /* border-top: 1px solid #e2e2e2; */
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.settings-controls {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.settings-close > svg {
+  width: 2rem;
+  height: 2rem;
+  fill: #404040;
+}
+
+.settings-btn {
+  border: 1px solid #c8c7c7;
+  border-radius: 50%;
+
+  font-size: 1.25rem;
+  height: 3rem;
+
+  opacity: 0.5;
+  overflow: hidden;
+  width: 3rem;
+}
+.settings-controls > .active {
+  opacity: 1;
+}
+
+.settings-btn > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.settings-open-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid #fff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
+
+.settings-btn:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+.settings-btn:active {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.settings-icon {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #fff;
+}
+
+[class^="layout-"] {
+  display: block;
+  /* background-color: #16599397; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+[class^="layout-"] > span {
+  display: block;
+
+  height: 100%;
+  width: 50%;
+}
+
+[class^="layout-"] > .first {
+  background-color: #1660a1;
+}
+
+.layout-top {
+  flex-direction: column;
+}
+
+.layout-top > span {
+  height: 50%;
+  width: 100%;
+}
+
+.layout-right {
+  flex-direction: row-reverse;
 }
