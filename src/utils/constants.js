@@ -13,7 +13,8 @@ export const GB_WORDS = {
   description: "description",
   experience: "experience",
   education: "education",
-  skills: "skills0",
+  skills: "skills",
+  personal: "Personal Data",
 };
 
 export const PL_WORDS = {
@@ -23,6 +24,7 @@ export const PL_WORDS = {
   experience: "doświadczenie",
   education: "wykształcenie",
   skills: "umiejętności",
+  personal: "dane osobowe",
 };
 
 export const LANGUAGES = [
@@ -40,5 +42,5 @@ export const INIT_SETTINGS = {
   color: "#03447d",
   fontFamily: "Montserrat",
   layout: "left",
-  language: "gb",
+  language: LANGUAGES[0],
 };
