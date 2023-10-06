@@ -211,8 +211,8 @@ button:disabled {
 }
 
 .control-icon {
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 1.5rem;
+  height: 1.5rem;
   fill: #fff;
 }
 
@@ -710,13 +710,6 @@ settings //////////////////////
   padding: 0rem 1rem 1rem 1rem;
 }
 
-.settings > .h3 {
-  font-size: 1.5rem;
-  border: 1px solid #e2e2e2;
-  padding: 1rem;
-  text-align: center;
-}
-
 .settings-row {
   padding: 1.75rem 1.5rem;
   align-items: center;
@@ -733,10 +726,13 @@ settings //////////////////////
   gap: 0.75rem;
 }
 
-.settings-close > svg {
-  width: 2rem;
-  height: 2rem;
-  fill: #404040;
+.settings-row > .h3 {
+  font-size: 1.66rem;
+}
+
+.settings-close {
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .settings-btn {
