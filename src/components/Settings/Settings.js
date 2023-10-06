@@ -3,6 +3,10 @@ import { COLORS, FONTS, LANGUAGES, LAYOUTS } from "../../utils/constants";
 import { useContext } from "react";
 import { CVResumeContext, SettingsContext } from "../App";
 
+const getClassName = (firstValue, secondValue) => {
+  return firstValue === secondValue ? "settings-btn active" : "settings-btn";
+};
+
 const Settings = () => {
   const { setOpenSettings } = useContext(CVResumeContext);
   const {
@@ -15,17 +19,21 @@ const Settings = () => {
 
   const languageControls = (
     <>
-      {LANGUAGES.map((lang) => (
-        <button
-          onClick={() => {
-            changeResumeLanguage(lang);
-          }}
-          key={lang.id}
-          className="settings-btn"
-        >
-          <img src={lang.url} alt={`flag ${lang.id}`} />
-        </button>
-      ))}
+      {LANGUAGES.map((lang) => {
+        const className = getClassName(lang.id, settings.language.id);
+
+        return (
+          <button
+            onClick={() => {
+              changeResumeLanguage(lang);
+            }}
+            key={lang.id}
+            className={className}
+          >
+            <img src={lang.url} alt={`flag ${lang.id}`} />
+          </button>
+        );
+      })}
     </>
   );
 
@@ -37,7 +45,7 @@ const Settings = () => {
             changeResumeLayout(layout);
           }}
           key={layout}
-          className="settings-btn"
+          className={getClassName(layout, settings.layout)}
         >
           <div className={`layout-${layout}`}>
             <span className="first"></span>
@@ -57,7 +65,7 @@ const Settings = () => {
           }}
           style={{ backgroundColor: color }}
           key={color}
-          className="settings-btn"
+          className={getClassName(color, settings.color)}
         ></button>
       ))}
     </>
@@ -72,7 +80,7 @@ const Settings = () => {
           }}
           key={font}
           style={{ fontFamily: font }}
-          className="settings-btn"
+          className={getClassName(font, settings.fontFamily)}
         >
           Aa
         </button>
