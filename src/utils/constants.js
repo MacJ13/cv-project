@@ -20,7 +20,7 @@ export const GB_WORDS = {
 export const PL_WORDS = {
   email: "e-mail",
   phone: "numer telefonu",
-  description: "podusmowanie",
+  description: "podsumowanie",
   experience: "doświadczenie",
   education: "wykształcenie",
   skills: "umiejętności",
@@ -36,7 +36,7 @@ export const COLORS = ["#03447d", "#065f46", "#be123c"];
 
 export const FONTS = ["Montserrat", "Times New Roman", "Arial"];
 
-export const LAYOUTS = ["top", "left", "right"];
+export const LAYOUTS = ["left", "right", "top"];
 
 export const INIT_SETTINGS = {
   color: "#03447d",
