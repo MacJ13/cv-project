@@ -187,7 +187,7 @@ function Main() {
         />
       </div>
       <Resume
-        innerRef={resumeRef}
+        ref={resumeRef}
         person={personal}
         skills={skills}
         works={works}
