@@ -21,8 +21,13 @@ import { useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useReactToPrint } from "react-to-print";
 import Container from "./Container";
+import Settings from "./Settings/Settings";
+import { useContext } from "react";
+import { CVResumeContext } from "./App";
 
 function Main() {
+  const { openSettings } = useContext(CVResumeContext);
+
   const resumeRef = useRef(null);
 
   const [personal, setPersonal] = useState({
@@ -147,6 +152,8 @@ function Main() {
 
   return (
     <Container>
+      {openSettings && <Settings />}
+
       <Controls
         onClickReset={onClickResetBtn}
         onClickLoad={onClickLoadBtn}
