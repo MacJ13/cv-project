@@ -98,7 +98,8 @@ const Settings = () => {
           }}
           className="settings-close"
         >
-          {resetIcon}
+          &#10005;
+          {/* {resetIcon} */}
         </button>
       </div>
 

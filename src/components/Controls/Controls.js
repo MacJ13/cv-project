@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "./ControlButton";
-import { cvIcon, pdfIcon, resetIcon } from "../Icons/icons";
+import { binIcon, cvIcon, pdfIcon, resetIcon } from "../Icons/icons";
 import { COLOR_BUTTONS } from "../../utils/constants";
 
 const Controls = (props) => {
@@ -19,7 +19,7 @@ const Controls = (props) => {
       </Button>
       <Button bgColor={reset} onClick={props.onClickReset}>
         <span>Reset All</span>
-        {resetIcon}
+        {binIcon}
       </Button>
     </div>
   );
