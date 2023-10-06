@@ -1,4 +1,3 @@
-import { resetIcon } from "../Icons/icons";
 import { COLORS, FONTS, LANGUAGES, LAYOUTS } from "../../utils/constants";
 import { useContext } from "react";
 import { CVResumeContext, SettingsContext } from "../App";
@@ -24,6 +23,8 @@ const Settings = () => {
 
         return (
           <button
+            type="button"
+            aria-label={`Change resume Language: ${lang.id}`}
             onClick={() => {
               changeResumeLanguage(lang);
             }}
@@ -41,6 +42,8 @@ const Settings = () => {
     <>
       {LAYOUTS.map((layout) => (
         <button
+          type="button"
+          aria-label={`Change resume layout: ${layout}`}
           onClick={() => {
             changeResumeLayout(layout);
           }}
@@ -60,6 +63,8 @@ const Settings = () => {
     <>
       {COLORS.map((color) => (
         <button
+          type="button"
+          aria-label={`Change resume color: ${color}`}
           onClick={() => {
             changeResumeColor(color);
           }}
@@ -75,6 +80,8 @@ const Settings = () => {
     <>
       {FONTS.map((font) => (
         <button
+          type="button"
+          aria-label={`Change resume font: ${font}`}
           onClick={() => {
             changeResumeFont(font);
           }}
@@ -89,10 +96,12 @@ const Settings = () => {
   );
 
   return (
-    <div className="settings">
+    <div className="settings" aria-label="settings menu">
       <div className="settings-row">
         <h3 className="h3">Customize Resume</h3>
         <button
+          type="button"
+          aria-label="Close settings"
           onClick={() => {
             setOpenSettings(false);
           }}

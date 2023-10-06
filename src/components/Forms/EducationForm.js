@@ -23,6 +23,7 @@ const EducationForm = (props) => {
         <div key={education.id} data-index={i} className="form-column">
           <input
             type="text"
+            aria-label="Enter university"
             onChange={(e) => {
               handleInputChange(e, education.id);
             }}
@@ -33,6 +34,7 @@ const EducationForm = (props) => {
           />
           <input
             type="text"
+            aria-label="Enter education city"
             onChange={(e) => {
               handleInputChange(e, education.id);
             }}
@@ -43,6 +45,7 @@ const EducationForm = (props) => {
           />
           <input
             type="text"
+            aria-label="Enter degree"
             onChange={(e) => {
               handleInputChange(e, education.id);
             }}
@@ -53,6 +56,7 @@ const EducationForm = (props) => {
           />
           <input
             type="text"
+            aria-label="Enter subject"
             onChange={(e) => {
               handleInputChange(e, education.id);
             }}
@@ -63,6 +67,7 @@ const EducationForm = (props) => {
           />
           <input
             type="text"
+            aria-label="Enter education year from"
             onChange={(e) => {
               handleInputChange(e, education.id);
             }}
@@ -73,6 +78,7 @@ const EducationForm = (props) => {
           />
           <input
             type="text"
+            aria-label="Enter education year to"
             onChange={(e) => {
               handleInputChange(e, education.id);
             }}

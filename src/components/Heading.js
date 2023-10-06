@@ -9,6 +9,8 @@ const Heading = () => {
     <div className="heading">
       <h1 className="h1">Resume CV Creator</h1>
       <button
+        type="button"
+        aria-label="Open settings"
         onClick={() => setOpenSettings(true)}
         className="settings-open-btn"
       >

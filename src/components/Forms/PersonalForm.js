@@ -23,6 +23,7 @@ const PersonalForm = (props) => {
       <div className="form-column">
         <input
           type="text"
+          aria-label="Enter full name"
           onChange={handleInputChange}
           id="cv-name"
           placeholder="full name"
@@ -31,6 +32,7 @@ const PersonalForm = (props) => {
         />
         <input
           type="text"
+          aria-label="Enter work title"
           onChange={handleInputChange}
           id="cv-title"
           placeholder="title"
@@ -40,6 +42,7 @@ const PersonalForm = (props) => {
         <label htmlFor="cv-photo" className="custom-file-input">
           <input
             type="file"
+            aria-label="Add change photo"
             onChange={handleInputChange}
             id="cv-photo"
             accept=".jpg, .jpeg, .png"
@@ -48,6 +51,7 @@ const PersonalForm = (props) => {
         </label>
         <input
           type="email"
+          aria-label="Enter email"
           onChange={handleInputChange}
           id="cv-email"
           placeholder="email"
@@ -56,6 +60,7 @@ const PersonalForm = (props) => {
         />
         <input
           type="tel"
+          aria-label="Enter phone number"
           onChange={handleInputChange}
           id="cv-tel"
           placeholder="phone number"
@@ -64,6 +69,7 @@ const PersonalForm = (props) => {
         />
         <textarea
           id="cv-description"
+          aria-label="Enter cv description"
           onChange={handleInputChange}
           placeholder="description"
           value={description}

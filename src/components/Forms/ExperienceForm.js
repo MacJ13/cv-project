@@ -23,6 +23,7 @@ const ExperienceForm = (props) => {
           <input
             data-column={i}
             type="text"
+            aria-label="Enter work position"
             onChange={(e) => {
               handleInputChange(e, work.id);
             }}
@@ -34,6 +35,7 @@ const ExperienceForm = (props) => {
           <input
             data-column={i}
             type="text"
+            aria-label="Enter work company"
             onChange={(e) => {
               handleInputChange(e, work.id);
             }}
@@ -45,6 +47,7 @@ const ExperienceForm = (props) => {
           <input
             data-column={i}
             type="text"
+            aria-label="Enter work city"
             onChange={(e) => {
               handleInputChange(e, work.id);
             }}
@@ -56,6 +59,7 @@ const ExperienceForm = (props) => {
           <input
             data-column={i}
             type="text"
+            aria-label="Enter work year from"
             onChange={(e) => {
               handleInputChange(e, work.id);
             }}
@@ -67,6 +71,7 @@ const ExperienceForm = (props) => {
           <input
             data-column={i}
             type="text"
+            aria-label="Enter work year to"
             onChange={(e) => {
               handleInputChange(e, work.id);
             }}

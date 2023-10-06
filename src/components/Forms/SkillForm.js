@@ -18,6 +18,7 @@ const SkillForm = (props) => {
             <input
               key={skill.id}
               type="text"
+              aria-label="Enter work skill"
               id={`skill-${i}`}
               placeholder={`skill ${i + 1}`}
               value={skill.name}
@@ -37,6 +38,7 @@ const SkillForm = (props) => {
       <div className="form-heading-skills">
         <input
           type="checkbox"
+          aria-label="select skill form"
           className="form-checkbox"
           id="checkbox-skills"
           name="checkbox-skills"
