@@ -1,11 +1,28 @@
 import { resetIcon } from "../Icons/icons";
 import { COLORS, FONTS, LANGUAGES, LAYOUTS } from "../../utils/constants";
+import { useContext } from "react";
+import { CVResumeContext, SettingsContext } from "../App";
 
 const Settings = () => {
+  const { setOpenSettings } = useContext(CVResumeContext);
+  const {
+    settings,
+    changeResumeLanguage,
+    changeResumeColor,
+    changeResumeLayout,
+    changeResumeFont,
+  } = useContext(SettingsContext);
+
   const languageControls = (
     <>
       {LANGUAGES.map((lang) => (
-        <button key={lang.id} className="settings-btn">
+        <button
+          onClick={() => {
+            changeResumeLanguage(lang);
+          }}
+          key={lang.id}
+          className="settings-btn"
+        >
           <img src={lang.url} alt={`flag ${lang.id}`} />
         </button>
       ))}
@@ -15,7 +32,13 @@ const Settings = () => {
   const layoutsControls = (
     <>
       {LAYOUTS.map((layout) => (
-        <button key={layout} className="settings-btn">
+        <button
+          onClick={() => {
+            changeResumeLayout(layout);
+          }}
+          key={layout}
+          className="settings-btn"
+        >
           <div className={`layout-${layout}`}>
             <span className="first"></span>
             <span className="second"></span>
@@ -29,6 +52,9 @@ const Settings = () => {
     <>
       {COLORS.map((color) => (
         <button
+          onClick={() => {
+            changeResumeColor(color);
+          }}
           style={{ backgroundColor: color }}
           key={color}
           className="settings-btn"
@@ -40,7 +66,14 @@ const Settings = () => {
   const fontControls = (
     <>
       {FONTS.map((font) => (
-        <button style={{ fontFamily: font }} className="settings-btn">
+        <button
+          onClick={() => {
+            changeResumeFont(font);
+          }}
+          key={font}
+          style={{ fontFamily: font }}
+          className="settings-btn"
+        >
           Aa
         </button>
       ))}
@@ -51,7 +84,14 @@ const Settings = () => {
     <div className="settings">
       <div className="settings-row">
         <h3 className="h3">Customize Resume</h3>
-        <button className="settings-close">{resetIcon}</button>
+        <button
+          onClick={() => {
+            setOpenSettings(false);
+          }}
+          className="settings-close"
+        >
+          {resetIcon}
+        </button>
       </div>
 
       <div className="settings-wrapper">
