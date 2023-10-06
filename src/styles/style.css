@@ -61,7 +61,8 @@ textarea:focus {
 }
 
 input[type="file"] {
-  display: none;
+  height: 0;
+  width: 0;
 }
 
 button {
@@ -282,11 +283,15 @@ button:disabled {
   /* justify-content: space-between; */
 }
 
-.form-heading-skills > .form-checkbox {
+.form-checkbox {
   margin-right: 1rem;
   width: 1.25rem;
   height: 1.25rem;
   background-color: #9ca3af;
+}
+
+.form-checkbox:focus {
+  box-shadow: 0px 0px 0px 1px #9ca3af;
 }
 
 .form-column {
@@ -329,7 +334,7 @@ button:disabled {
 }
 
 .custom-file-input::before {
-  content: "photo";
+  content: "Add/Change photo";
   display: block;
   background-color: #fff;
 
@@ -339,7 +344,14 @@ button:disabled {
 
   font-size: 0.8rem;
 }
+.custom-file-input::before:focus {
+  border: 1px solid #c0c0c0;
+}
 .custom-file-input:active::before {
+  border: 1px solid #c0c0c0;
+}
+
+.custom-file-input:focus-within::before {
   border: 1px solid #c0c0c0;
 }
 
@@ -546,6 +558,10 @@ h3.resume-title {
 
 .resume-personal-details {
   margin-bottom: 1.5rem;
+}
+
+.resume-personal-details > .h4 {
+  color: #fff !important;
 }
 
 /* .resume-personal-details > .h4 {
