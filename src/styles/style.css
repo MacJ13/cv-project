@@ -284,10 +284,48 @@ button:disabled {
 }
 
 .form-checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
   margin-right: 1rem;
   width: 1.25rem;
   height: 1.25rem;
-  background-color: #9ca3af;
+
+  background-color: #0369a1;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px 1px #e8e8e8;
+  /* border: 2px solid #455a64; */
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  color: #fff;
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  left: 1px;
+  right: 1px;
+  background-color: transparent;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 2px;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff' width='48px' height='48px'%3E%3Cpath d='M 20.292969 5.2929688 L 9 16.585938 L 4.7070312 12.292969 L 3.2929688 13.707031 L 9 19.414062 L 21.707031 6.7070312 L 20.292969 5.2929688 z'/%3E%3C/svg%3E");
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: -webkit-transform 0.25s ease-in-out;
+  transition: -webkit-transform 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+}
+input[type="checkbox"]:checked::before {
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 
 .form-checkbox:focus {
