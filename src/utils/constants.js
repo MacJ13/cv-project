@@ -20,7 +20,7 @@ export const GB_WORDS = {
 export const PL_WORDS = {
   email: "e-mail",
   phone: "numer telefonu",
-  description: "podsumowanie",
+  description: "opis",
   experience: "doświadczenie",
   education: "wykształcenie",
   skills: "umiejętności",
