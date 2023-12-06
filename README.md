@@ -1,6 +1,6 @@
 # CV Project
 
-This is app generator to create CV application and save as pdf file.
+The CV Creator App to make CV application and save as pdf file.
 
 # Link
 
