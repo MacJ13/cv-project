@@ -85,7 +85,7 @@ button:disabled {
 }
 
 .h4 {
-  font-size: 1.1rem;
+  font-size: 1.33rem;
   font-weight: 600;
 }
 
@@ -97,7 +97,7 @@ button:disabled {
   /* grid-template-columns: repeat(2, 1fr); */
   grid-template-columns: 2fr 3fr;
   column-gap: 2rem;
-  padding: 0 5%;
+  padding: 0 2.25rem;
   margin-bottom: 2rem;
 }
 
@@ -449,7 +449,7 @@ input[type="checkbox"]:checked::before {
   /* grid-template-columns: 1fr 2fr; */
 
   width: 100%;
-  font-size: 80%;
+  font-size: 92.5%;
 
   /* max-width: 60rem; */
   max-height: 40rem;
@@ -566,15 +566,15 @@ input[type="checkbox"]:checked::before {
 }
 
 h2.resume-name {
-  font-size: 1.75rem;
+  font-size: 2rem;
   line-height: 1.125;
   margin-bottom: 0.5rem;
   word-wrap: break-word;
 }
 
 h3.resume-title {
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 1.075rem;
+  font-weight: 500;
   margin-bottom: 1rem;
 }
 
@@ -613,7 +613,8 @@ h3.resume-title {
 }
 
 .resume-personal-row {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
   padding: 0 1rem;
 }
 
@@ -631,6 +632,7 @@ h3.resume-title {
 }
 
 .resume-info > .h4 {
+  font-size: 1.35rem;
   /* color: #0369a1; */
   /* color: #03447d; */
   border-bottom: 1px solid #e2e2e2;
