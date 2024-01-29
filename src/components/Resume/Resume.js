@@ -71,10 +71,10 @@ const Resume = forwardRef((props, ref) => {
               {education.city}
             </div>
             <div className="resume-degree">
-              {!education.degree || `Degree: ${education.degree}`}
+              {!education.degree || `${words.degree}: ${education.degree}`}
             </div>
             <div className="resume-subject">
-              {!education.subject || `Subject: ${education.subject}`}
+              {!education.subject || `${words.subject}: ${education.subject}`}
             </div>
           </div>
         </div>

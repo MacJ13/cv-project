@@ -15,6 +15,8 @@ export const GB_WORDS = {
   education: "education",
   skills: "skills",
   personal: "Personal Data",
+  degree: "Degree",
+  subject: "Subject",
 };
 
 export const PL_WORDS = {
@@ -25,6 +27,8 @@ export const PL_WORDS = {
   education: "wykształcenie",
   skills: "umiejętności",
   personal: "dane osobowe",
+  degree: "Stopień",
+  subject: "Kierunek",
 };
 
 export const LANGUAGES = [
